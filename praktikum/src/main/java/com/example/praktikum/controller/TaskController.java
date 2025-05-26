@@ -27,7 +27,7 @@ public class TaskController {
     
     private final TasksDatabase tasksDatabase;
 
-    @Autowired
+    @Autowired // Da es nur einen Konstruktor gibt und dieser Konstruktor public ist -> @Autowired optional 
     public TaskController(TasksDatabase tasksDatabase) {
         this.tasksDatabase = tasksDatabase;
     }
