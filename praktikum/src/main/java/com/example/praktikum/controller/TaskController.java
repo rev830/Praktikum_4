@@ -17,8 +17,10 @@ import com.example.praktikum.dto.PostTaskRequest;
 import com.example.praktikum.model.Task;
 import com.example.praktikum.service.TasksDatabase;
 
+import jakarta.validation.Valid;
 
-@RestController
+
+@RestController // Ist wie @Controller, aber gibt automatisch JSON zurück; Spart ein zusätzliches @ResponseBody bei jeder Methode
 @RequestMapping("/tasks")
 
 public class TaskController {
@@ -30,10 +32,13 @@ public class TaskController {
         this.tasksDatabase = tasksDatabase;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // GET
     public ResponseEntity<Task> getTask(@PathVariable String id) {
         Task task = tasksDatabase.getTask(id);
-        return task != null ? ResponseEntity.ok(task) : ResponseEntity.notFound().build();
+        if (task == null) {
+            return ResponseEntity.notFound().build(); // Error 404 wenn Task nicht vorhanden
+        }
+        return ResponseEntity.ok(task);
     }
 
     @GetMapping
@@ -41,12 +46,12 @@ public class TaskController {
         return tasksDatabase.getAllTasks();
     }
 
-    @PostMapping
-    public Task postTask(@RequestBody PostTaskRequest request) {
+    @PostMapping // POST
+    public Task postTask(@Valid @RequestBody PostTaskRequest request) { //@Valid löst automatisch einen 400 Bad Request aus, wenn die Eingaben ungültig sind – kein manuelles Prüfen nötig
         return tasksDatabase.addTask(request.getDescription(), false);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/{id}") // PATCH
     public ResponseEntity<Task> patchTask(@PathVariable String id, @RequestBody PatchTaskRequest request) {
         Task task = tasksDatabase.updateTask(id, request.getDescription(), request.getDone());
         return task != null ? ResponseEntity.ok(task) : ResponseEntity.notFound().build();
