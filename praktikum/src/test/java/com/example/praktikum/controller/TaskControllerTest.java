@@ -44,7 +44,7 @@ public class TaskControllerTest {
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("123"))
-                .andExpect(jsonPath("$.taskDescription").value("Testaufgabe"))
+                .andExpect(jsonPath("$.description").value("Testaufgabe"))
                 .andExpect(jsonPath("$.done").value(false));
     }
 
@@ -56,7 +56,7 @@ public class TaskControllerTest {
         mockMvc.perform(get("/tasks/abc"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("abc"))
-                .andExpect(jsonPath("$.taskDescription").value("Lernaufgabe"))
+                .andExpect(jsonPath("$.description").value("Lernaufgabe"))
                 .andExpect(jsonPath("$.done").value(false));
     }
 
@@ -99,7 +99,7 @@ public class TaskControllerTest {
                 .content(requestBody))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(taskId))
-                .andExpect(jsonPath("$.taskDescription").value("Geändert"))
+                .andExpect(jsonPath("$.description").value("Geändert"))
                 .andExpect(jsonPath("$.done").value(true));
     }
 }
