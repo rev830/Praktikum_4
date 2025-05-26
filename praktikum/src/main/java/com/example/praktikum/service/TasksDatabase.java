@@ -18,7 +18,7 @@ public class TasksDatabase {
 
     public Task addTask(String name, boolean done) {
         String id = UUID.randomUUID().toString();
-        Task task = new Task(id, name, done);
+        Task task = new Task(id, name, false); //Beim eintragen des Tasks soll done erstmal false sein
         tasks.put(id, task);
         return task;
     }

@@ -43,7 +43,7 @@ public class TaskController {
 
     @PostMapping
     public Task postTask(@RequestBody PostTaskRequest request) {
-        return tasksDatabase.addTask(request.getDescription(), request.isDone());
+        return tasksDatabase.addTask(request.getDescription(), false);
     }
 
     @PatchMapping("/{id}")
@@ -51,6 +51,4 @@ public class TaskController {
         Task task = tasksDatabase.updateTask(id, request.getDescription(), request.getDone());
         return task != null ? ResponseEntity.ok(task) : ResponseEntity.notFound().build();
     }
-
-
 }
