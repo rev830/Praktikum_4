@@ -6,8 +6,9 @@ public class PatchTaskRequest {
 
     @NotEmpty(message = "Beschreibung darf nicht leer sein")
     private String description;
-    
     private Boolean done;
+
+    public PatchTaskRequest() { }
 
     public PatchTaskRequest(String description, Boolean done) {
         this.description = description;

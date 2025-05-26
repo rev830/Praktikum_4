@@ -31,11 +31,15 @@ public class TasksDatabase {
         return new ArrayList<>(tasks.values());
     }
 
-    public Task updateTask(String id, String taskDescription, Boolean done) {
+    public Task updateTask(String id, String newDescription, Boolean newDone) {
         Task task = tasks.get(id);
         if (task != null) {
-            task.setDescription(taskDescription);
-            task.setDone(done);
+           if (newDescription != null) {
+                task.setDescription(newDescription);
+            }
+            if (newDone != null) {
+                task.setDone(newDone);
+            }
         }
         return task;
     }
