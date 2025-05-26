@@ -1,0 +1,36 @@
+/* Allgemeine Gestaltung */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8; /* Helles, sanftes Grau-Blau – angenehm und kontraststark */
+  color: #202124; /* Dunkles Grau für gute Lesbarkeit */
+}
+
+/* Kopfzeile */
+header {
+  background-color: #003366; /* Dunkles Blau – sehr kontrastreich */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Sektionen */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Offene Aufgaben – helles Gelb */
+#open-tasks {
+  background-color: #fff8dc; /* Cornsilk */
+}

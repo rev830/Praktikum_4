@@ -2,7 +2,36 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>title</title>
+    <title>Aufgabenmanager</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>🗂️ Aufgabenmanager</h1>
+    </header>
+
+    <main>
+      <section id="create-task">
+        <h2>Neue Aufgabe erstellen</h2>
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Beschreibung der Aufgabe"
+        />
+        <button id="addTaskButton">Hinzufügen</button>
+      </section>
+
+      <section id="open-tasks">
+        <h2>📋 Offene Aufgaben</h2>
+        <ul id="openTaskList"></ul>
+      </section>
+
+      <section id="done-tasks">
+        <h2>✅ Erledigte Aufgaben</h2>
+        <ul id="doneTaskList"></ul>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
 </html>
