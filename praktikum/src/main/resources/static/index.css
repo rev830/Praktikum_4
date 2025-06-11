@@ -34,3 +34,10 @@ section {
 #open-tasks {
   background-color: #fff8dc; /* Cornsilk */
 }
+
+#openTaskList,
+#doneTaskList {
+  list-style-type: none; /* keine Aufzählungszeichen */
+  margin: 0; /* keinen Außenabstand */
+  padding-left: 0; /* keine Einrückung */
+}
